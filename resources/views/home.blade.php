@@ -8,20 +8,18 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                 
-                     <h8>Website under development</h8>
+                    <h1>Clinic Notes Generator</h1>
+                    <span
+                        class="">Please note: Website still under development and not all sections are functional</span>
                 </div>
 
                 <div class="card-body">
                     <div id="container">
                         <div class="leftHolder">
                             <button id="contentgenerate" onclick="myGenerate()">Generate</button>
-<button id="contentgenerateguide1" onclick="myGenerate2()">Guides</button> 
                             @auth
-                                <button id="contenthistory" onclick="myHistory()">Saved Notes</button>
+                                <button id="contenthistory" onclick="myHistory()">History</button>
                                 <div id="contentcat" class="d-none">
-                               
-
                                     <hr>
                                     @foreach($notesByCategory as $key=>$noteCategory)
                                         <button class="accordion">{{ $key }}</button>
@@ -39,13 +37,7 @@
 
 
                                 </div>
-
- 
                             @endauth
-
-
-
-
                             <div id="checkboxes">
                                 <hr>
                                 <button class="toggle-button5" id="button1">DIAGNOSTIC SERVICES (0xx)</button>
@@ -2614,8 +2606,8 @@
                                         AND
                                         <select id="resto2Dropdown" class="TEST">
                                             <option value=""></option>
-                                            <option value="and NCTL">NCTL</option>
-                                            <option value="and defective margin">defective margin</option>
+                                            <option value="NCTL">NCTL</option>
+                                            <option value="defective margin">defective margin</option>
                                         </select>
                                         <br>
                                         <input type="Checkbox" id="bwCheckbox" class="TEST">
@@ -4368,11 +4360,9 @@
                                     <p><strong> BEFORE SUPERVISOR</strong></p>
                                     <textarea id="generatedText1" class="TEST" placeholder=""></textarea>
                                 </div>
-    </div>
-                                <hr>
-                            
 
- <div id="guides1" class="section">
+                                <hr>
+                                <h2>MISCELLANEOUS </h2>
                                 <button class="toggle-button5" id="button38">PSR Scores</button>
                                 <br>
                                 <div id="psrSection1" class="section">
@@ -4922,10 +4912,7 @@
                                      
 
                                 </div>
- <a href="https://ada.org.au/getmedia/af3b78d7-2b5c-4e61-b2a0-08af9ef48fb2/ADA_Handbook_Australian-Schedule-and-Dental-Glossary-13th-Edition.pdf" target="_blank">
-    <button class="toggle-button5" id="button40344">The Australian Schedule of Dental Services and Glossary</button>
-</a>
-                                <button class="toggle-button5" id="button403" >Year 4 ADA Code List</button>
+                                <button class="toggle-button5" id="button403">Year 4 ADA Code List</button>
                                 <br>
                                 <div id="adayr41Section1" class="section">
 
@@ -5950,9 +5937,9 @@
                                         <li>Supervisor name:</li>
                                         <li>N/V:</li>
                                     </ul>
-                                
+                                </div>
 
-        </div>
+
                             </div>
                         </div>
                         <div id="output">
@@ -5967,22 +5954,20 @@ Please use this as a guide only and always listen to your supervisors' instructi
                             <div class="actionButtonHolder">
                                 <div class="copyfi mb-1">
                                     <button id="button" class="copybut" onclick="myFunction()">Copy Text</button>
-
-                                @guest
                                     <button id="newnote" onclick="myNewNote()">New Note</button>
-                                @endguest
                                     <button id="finalize" class="finalize" onclick="myFinalize()">Finalize</button>
                                 </div>
                                 @auth
-                                <div class="saveholder">
-                                    <select id="contentcatselect" disabled>
-                                        @foreach($categoryDropdown as $key=>$value)
-                                            <option value="{{$value}}">{{$key}}</option>
-                                        @endforeach
-                                    </select>
-                                    <input type="text" id="saveName" placeholder="Enter save file name" disabled>
-                                    <button id="saveContent" data-note_id="0" class="saveContent" disabled>Save & New Note</button>
-                                </div>
+                                    <div class="saveholder">
+                                        <select id="contentcatselect" disabled>
+                                            @foreach($categoryDropdown as $key=>$value)
+                                                <option value="{{$value}}">{{$key}}</option>
+                                            @endforeach
+                                        </select>
+                                        <input type="text" id="saveName" placeholder="Enter save file name" disabled>
+                                        <button id="saveContent" data-note_id="0" class="saveContent" disabled>Save
+                                        </button>
+                                    </div>
                                 @endauth
                                 <div id="myTooltip" hidden="">Copied!</div>
                             </div>
@@ -6114,25 +6099,17 @@ Please use this as a guide only and always listen to your supervisors' instructi
 
         }
 
-function myGenerate() {
-              document.getElementById('contentcat').classList.add("d-none");
-            document.getElementById('checkboxes').classList.remove("d-none");
- 
-        }
-  function myGenerate2() {
-document.getElementById('checkboxes').classList.add("d-none");
+        function myGenerate() {
+            document.getElementById('contentcat').classList.remove("d-none");
             document.getElementById('contentcat').classList.add("d-none");
-            document.getElementById('guides1').classList.remove("d-none");
- 
+            document.getElementById('checkboxes').classList.remove("d-none");
         }
 
         function myHistory() {
             document.getElementById('checkboxes').classList.remove("d-none");
             document.getElementById('checkboxes').classList.add("d-none");
             document.getElementById('contentcat').classList.remove("d-none");
- document.getElementById('guides1').classList.add("d-none");
         }
-
 
         function myFinalize() {
             //getListOfIdsAndValues();
@@ -6338,11 +6315,6 @@ document.getElementById('checkboxes').classList.add("d-none");
             Spry.$$("#button4034").addEventListener('click', function (e) {
                 toggleSection('dentureguidessection')
             }, false);
- Spry.$$("#contentgenerateguide1").addEventListener('click', function (e) {
-                toggleSection('guides1')
-            }, false);
-
-
 
             function getElementsWithClass(TEST) {
                 const elements = {};
@@ -6424,8 +6396,6 @@ document.getElementById('checkboxes').classList.add("d-none");
             endo2allCheckbox.addEventListener('change', toggleSubCheckboxes);
             endo4allCheckbox.addEventListener('change', toggleSubCheckboxes);
             endo3allCheckbox.addEventListener('change', toggleSubCheckboxes);
-
-            addEventListener('change', toggleSubCheckboxes);
 
             function toggleSubCheckboxes() {
                 // Check or uncheck checkboxes B3, B4, B5, B6 based on B11Checkbox state
@@ -8068,9 +8038,7 @@ document.getElementById('checkboxes').classList.add("d-none");
 
                     if (restoCheckbox.checked) {
                         text.push('\n');
-                        text.push('Tooth - required restoration due to ');
-        	 text.push(`${restoDropdown.value}`);
-		 text.push(` ${resto2Dropdown.value}`);
+                        text.push('Tooth - required restoration due to decay/NCTL/defective margin');
                     }
 
                     if (bwCheckbox.checked) {

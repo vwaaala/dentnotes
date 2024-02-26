@@ -18,7 +18,6 @@
                             </div>
                             <div class="card-body">
                                 {{$allVisitorCounts}}
- 
                             </div>
                         </div>
                     </div>
