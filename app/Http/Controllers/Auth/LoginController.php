@@ -38,6 +38,7 @@ class LoginController extends Controller
     }
     protected function authenticated($request, $user)
     {
+        $user->update(['last_login' => now()]);
         // Check the user's role and redirect accordingly
         if ($user->isAdmin()) {
             return redirect()->route('dashboard'); // Replace with your admin dashboard route

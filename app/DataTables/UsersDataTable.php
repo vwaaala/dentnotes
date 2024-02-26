@@ -16,9 +16,14 @@ class UsersDataTable extends DataTable
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         // Create a new EloquentDataTable instance, set row ID to 'id'
-        return (new EloquentDataTable($query))->setRowId('id')->editColumn('status', function ($user) {
+        return (new EloquentDataTable($query))->setRowId('id')
+        ->editColumn('status', function ($user) {
             return ucfirst($user->status); // Use ucfirst to capitalize the first letter of 'status'
-        })->editColumn('role_id', function ($user) {
+        })
+        ->editColumn('last_login', function ($user) {
+            return $user->last_login ? date('Y-m-d H:i:s', strtotime($user->last_login)) : ''; // Use ucfirst to capitalize the first letter of 'status'
+        })
+        ->editColumn('role_id', function ($user) {
             return $user->role->name; // Get the name of the role associated with the user
         })->addColumn('action', 'user.action'); // Add a column for actions using the 'user.action' view
     }
@@ -37,7 +42,8 @@ class UsersDataTable extends DataTable
         }
 
         // Exclude the first user based on ID
-        $firstUserId = User::orderBy('id')->value('id'); // Get the ID of the first user
+       // $firstUserId = User::orderBy('id')->value('id'); // Get the ID of the first user
+        $firstUserId = 0; // Get the ID of the first user
         $query->where('id', '!=', $firstUserId); // Exclude the user with the first ID
 
         return $query;
@@ -72,6 +78,7 @@ class UsersDataTable extends DataTable
             Column::make('email'), // Column for 'email'
             Column::make('role_id'), // Column for 'role_id'
             Column::make('status'), // Column for 'status'
+            Column::make('last_login'), // Column for 'created_at'
             Column::make('created_at'), // Column for 'created_at'
             Column::make('updated_at'), // Column for 'updated_at'
             Column::make('deleted_at'), // Column for 'deleted_at'

@@ -1,27 +1,32 @@
 @extends('layouts.app')
-
-@section('content')
+@push('styles')
 
 <style>
-     body {
-        margin: 0;
-        padding: 0;
-        background-image: url('resources/views/auth/uq-herston-24-hours-on-campus-1.jpg');
+     .bgoverlay {
+        background-image: url('/assets/images/uq-herston-24-hours-on-campus-1.jpg');
         background-size: cover;
         background-position: center;
-        height: 100vh; /* Adjust height as needed */
-        font-family: Arial, sans-serif; /* Optional: Choose your preferred font */
     }
-
+    .bgoverlay {
+    background-image: url(/assets/images/uq-herston-24-hours-on-campus-1.jpg);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    filter: blur(4px);
+}
     </style>
-
-
-
-<div class="container-fluid login-bg">
+@endpush
+@section('content')
+<div class="login-bg">
+    <div class="bgoverlay"></div>
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-  <div class="card-header">    <h4 class="card-reader">LOG IN TO SAVE YOUR NOTES</h4> </div>
+  <div class="card-header"><h4>LOG IN TO SAVE YOUR NOTES</h4><br><h5 class="text-danger">We are sorry to inform you that, for technical issues, we lost our user data. Please register and login again to start making new notes.</h5></div>
                    
 
                     <div class="card-body">

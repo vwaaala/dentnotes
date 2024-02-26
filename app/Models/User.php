@@ -26,7 +26,7 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = ['name', 'email', 'avatar', 'role_id', 'status', 'password',];
+    protected $fillable = ['name', 'email', 'avatar', 'role_id', 'status', 'password','last_login'];
 
     /**
      * The attributes that will be set by SoftDeletes action

@@ -22,6 +22,7 @@ return new class extends Migration
             $table->enum('status',['pending','active', 'inactive', 'banned'])->default('pending');
             $table->string('password');
             $table->rememberToken();
+            $table->timestamp('last_login')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

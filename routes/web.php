@@ -36,6 +36,8 @@ Route::middleware(['auth'])->group(function () {
 
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware(['role:admin']);
+    Route::post('/dashboard/guestvisitbydate', [DashboardController::class, 'getguestvisitbydate'])->name('dashboard.getguestbydate')->middleware(['role:admin']);
+    Route::post('/dashboard/uservisitbydate', [DashboardController::class, 'getuservisitbydate'])->name('getuservisitbydate')->middleware(['role:admin']);
 
     Route::get('users', [App\Http\Controllers\UserController::class, 'index'])->name('user.index')->middleware(['role:admin']);
     Route::get('users/create', [App\Http\Controllers\UserController::class, 'create'])->name('user.create')->middleware(['role:admin']);
