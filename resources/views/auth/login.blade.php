@@ -1,11 +1,28 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+
+<style>
+     body {
+        margin: 0;
+        padding: 0;
+        background-image: url('resources/views/auth/uq-herston-24-hours-on-campus-1.jpg');
+        background-size: cover;
+        background-position: center;
+        height: 100vh; /* Adjust height as needed */
+        font-family: Arial, sans-serif; /* Optional: Choose your preferred font */
+    }
+
+    </style>
+
+
+
+<div class="container-fluid login-bg">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Login') }}</div>
+  <div class="card-header">    <h4 class="card-reader">LOG IN TO SAVE YOUR NOTES</h4> </div>
+                   
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('login') }}">
@@ -72,33 +89,37 @@
                                 </div>
                                 <hr>
                                 <div class="col-md-8 offset-md-4 mt-1">
-                                    <a href="{{ route('google.redirect') }}" class="btn btn-outline-success">
-                                        <span class="bi bi-google"></span>
-                                        Login with Google
+                                    <a href="https://dentnotes.com/register" class="btn btn-outline-success">
+                                       
+                                       Register For Account
                                     </a>
                                     <a href="{{ route('home') }}" class="btn btn-outline-success">
                                         <span class="bi bi-guest"></span>
                                         Visit As Guest
                                     </a>
                                 </div>
+
                             </div>
+
                         </form>
+
                     </div>
                 </div>
+
             </div>
-            <div class="col-md-8">
+            <!-- <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">{{ __('Demo Account') }}</div>
 
                     <div class="card-body">
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="button" onclick="fillForm('admin@bunk3r.net', 'secret')"
+                              
                                         class="btn btn-primary">
                                     Fill Admin
                                 </button>
 
-                                <button type="button" onclick="fillForm('user@bunk3r.net', 'secret')"
+                                <button type="button" onclick="fillForm('user@dentnotes.com', 'secret')"
                                         class="btn btn-primary">
                                     Fill User
                                 </button>
@@ -106,16 +127,16 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 @endsection
 @push('scripts')
     <script>
-        function fillForm(email, password) {
-            // Set values for email and password fields
-            document.getElementById('email').value = email;
-            document.getElementById('password').value = password;
-        }
+        // function fillForm(email, password) {
+        //     // Set values for email and password fields
+        //     document.getElementById('email').value = email;
+        //     document.getElementById('password').value = password;
+        // }
     </script>
 @endpush
