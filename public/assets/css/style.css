@@ -1,19 +1,19 @@
 
 @charset "utf-8";
 /* CSS Document */
- #generatedText1 {
-  width: 90%;
-    height: 45%;
-    resize:vertical;
 
-    position:relative; /* Change to fixed */
-
-       align-self: auto;
-
-}
 #app {
     width: 100%;
 }
+
+ #generatedText {
+           width: 45%;
+            height: 50%;
+             resize: both;
+            position: fixed;
+            top: 300px;
+        }
+
 
 #contentcat ul {
     padding: 0px;
@@ -31,7 +31,7 @@
  #generatedText1 {
   width: 90%;
     height: 45%;
-    resize:vertical;
+    resize:both;
 
     position:relative; /* Change to fixed */
 
@@ -83,6 +83,14 @@
             border: 2px solid #3498db;
             margin: 20px 0;
         }
+
+   h1 {
+            text-align: center;  
+        }
+ h8 {
+            text-align: center;  
+        }
+
 
         #container {
             display: flex;
@@ -307,13 +315,9 @@
             width: 45%;
             position: fixed;
         }
-        #generatedText {
-            width: 45%;
-            height: 75%;
-            resize: vertical;
-            position: fixed;
-            top: 300px;
-        }
+       
+
+
         .saveHolder {
             display: flex;
             align-items: center;

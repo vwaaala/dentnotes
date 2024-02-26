@@ -12,9 +12,9 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         User::insert([
-            ['name' => 'John Doe', 'email' => 'admin@bunk3r.net', 'password' => bcrypt('secret'), 'role_id' => '1', 'avatar' => '/assets/images/avatar/avatar.jpg'],
-            ['name' => 'Justin Timberlake', 'email' => 'user@bunk3r.net', 'password' => bcrypt('secret'), 'role_id' => '2', 'avatar' => '/assets/images/avatar/avatar.jpg'],
-            ['name' => 'Benjamin Linus', 'email' => 'linus@bunk3r.net', 'password' => bcrypt('secret'), 'role_id' => '2', 'avatar' => '/assets/images/avatar/avatar.jpg']
+            ['name' => 'Ahmed Ali', 'email' => 'admin@dentnotes.com', 'password' => bcrypt('secret'), 'role_id' => '1', 'avatar' => '/assets/images/avatar/avatar.jpg'],
+            ['name' => 'Justin Timberlake', 'email' => 'user@dentnotes.com', 'password' => bcrypt('secret'), 'role_id' => '2', 'avatar' => '/assets/images/avatar/avatar.jpg'],
+            ['name' => 'Benjamin Linus', 'email' => 'linus@dentnotes.com', 'password' => bcrypt('secret'), 'role_id' => '2', 'avatar' => '/assets/images/avatar/avatar.jpg']
         ]);
 
     }
